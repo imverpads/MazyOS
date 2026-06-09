@@ -40,7 +40,7 @@ Se tiver dúvida em algum passo, me chama que a gente resolve juntos numa videoc
 Tatiane, além dos anúncios, vou começar também a trabalhar no perfil de vocês no Google — que faz parte do pacote.
 
 Pra isso preciso de duas coisas:
-
+ 
 **① Autorização para gerenciar o perfil**
 
 Você precisa me adicionar como gerente do perfil da ALS no Google. Veja como:
@@ -83,3 +83,4 @@ Não precisa ser foto profissional — foto boa de celular já resolve. O import
 - [ ] Tatiane conceder acesso ao Google Meu Negócio
 - [ ] Tatiane enviar fotos para o perfil do Google
 - [ ] Definir orçamento de mídia com Tatiane
+ 
