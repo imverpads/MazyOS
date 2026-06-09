@@ -24,17 +24,20 @@
   - [ ] Montar e subir campanha de anúncio
 
 ### Panificadora MANÁ
-- [ ] Fazer call de diagnóstico com o dono
-  - Horário de funcionamento
-  - Produtos principais
-  - Tem delivery / pedido pelo WhatsApp?
-  - Tem fotos do espaço e dos produtos?
-  - Qual o maior problema hoje?
-- [ ] Definir escopo final dos serviços contratados
-- [ ] Criar/reivindicar Google Meu Negócio
-- [ ] Configurar WhatsApp Business
-- [ ] Criar/otimizar Instagram
-- [ ] Criar Página no Facebook
+- [x] Fazer call de diagnóstico com o dono (05/06/2026 — Clésio Ferreira)
+- [ ] Confirmar horário de encerramento da padaria (ficou truncado na transcrição)
+- [x] Definir escopo final dos serviços — Módulo 1 (presença digital) + Módulo 2 (gestão, cobrado à parte)
+- [ ] Apresentar Módulo 2 pro Clésio e entender o que ele precisa controlar (financeiro, estoque, pedidos?)
+- [ ] Completar Google Meu Negócio
+  - [x] Responder todas as avaliações (20 respondidas em 05/06/2026)
+  - [x] Reescrever descrição do perfil
+  - [x] Corrigir marcação "empresa de empreendedoras"
+  - [ ] Criar primeira postagem
+  - [ ] Cadastrar cardápio com fotos e preços
+  - [ ] Adicionar mais fotos dos produtos
+- [ ] Verificar e migrar para WhatsApp Business
+- [ ] Criar/otimizar Instagram com postagens frequentes
+- [ ] Criar/otimizar Página no Facebook
 
 ---
 

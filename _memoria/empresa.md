@@ -3,6 +3,7 @@
 > Memória central do negócio. O Claude lê esse arquivo antes de cada resposta.
 
 **Nome:** Joabe Silva
+**Marca:** InvestADS
 **Negócio:** Presença digital para negócios locais
 **O que faz:** Cria sites, sistemas e melhora o perfil no Google Meu Negócio para que negócios locais apareçam melhor nas buscas e atraiam mais clientes. Cuida de toda a estruturação da empresa na internet — desde criar conteúdo até montar um sistema de controle e desempenho. O escopo varia conforme o diagnóstico de cada cliente: às vezes é só o perfil do Google, às vezes é tráfego pago, às vezes é organizar o atendimento no WhatsApp.
 **Perfil:** Freelancer solo

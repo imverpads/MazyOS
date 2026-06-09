@@ -71,22 +71,32 @@ Apresentar brevemente:
 Não vender na call. Ouvir, anotar, e fechar assim:
 
 > "obrigado pelas informações. com isso consigo montar um diagnóstico real e te mostrar exatamente o que faz sentido fazer — na ordem certa, sem queimar etapa. te mando uma proposta em [prazo]."
-
+ 
 ---
 
 ## Anotações da call
 
-*(preencher durante ou logo após a conversa)*
+*(call realizada em 05/06/2026)*
 
-- Nome do dono:
-- Horário:
-- Produtos principais:
-- Carro-chefe:
-- Delivery:
-- WhatsApp de pedidos:
-- Situação do Google:
-- Situação do Instagram:
-- Tem fotos?
-- Tem logo?
-- Maior problema relatado:
-- Observações gerais:
+- **Nome do dono:** Clésio Ferreira
+- **Horário:** 6h às 11h, intervalo de 2h, reabre — horário de encerramento a confirmar
+- **Equipe:** 5 pessoas
+- **Produtos principais:** pão francês, pão de queijo, coxinha de arroz (frita e assada), bolo frito, bolo de mandioca, enroladinho de queijo, de salsicha e de presunto e queijo
+- **Cardápio:** fixo com variações 2x por semana (quitandas, salgadinhos, pastel)
+- **Carro-chefe:** pão francês, pão de queijo e bolo de mandioca
+- **Encomendas:** sim — bolo, salgado e pão
+- **Lanche/café:** tem café com leite e ambiente para lanchar; sem açaí
+- **Delivery:** não tem
+- **WhatsApp de pedidos:** sim, recebe pedido pelo WhatsApp
+- **Situação do Google:** perfil existe, quase completo, faltando postagens e alguns detalhes — segundo Clésio está bem posicionado
+- **Situação do Instagram:** tem perfil, mas sem postagens frequentes
+- **Situação do Facebook:** tem página, mas sem postagens frequentes
+- **Site:** não tem
+- **Responde avaliações:** não
+- **Já fez anúncio:** nunca tentou
+- **Tem fotos:** sim
+- **Tem logo:** sim
+- **Tem alguém para tirar fotos:** sim
+- **Maior problema relatado:** estrutura física da empresa, inovação/renovação de produtos, organização administrativa e controle financeiro
+- **Concorrência:** não se preocupa com concorrente específico
+- **Observações gerais:** negócio tem 10 anos, clientela fiel do bairro, captação por indicação e passagem. Movimento e presença digital não foram citados como dor principal — o problema real é interno (estrutura, gestão, produtos).

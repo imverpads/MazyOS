@@ -1,4 +1,4 @@
-# Joabe Silva — MazyOS
+# Joabe Silva — InvestADS
 
 > Operação freelancer de presença digital para negócios locais.
 > Aqui ficam clientes, propostas, conteúdo próprio e processo de prospecção.
@@ -19,7 +19,7 @@ Operação solo do Joabe Silva — freelancer de presença digital. Aqui ficam t
 
 ## Quem sou
 
-Sou Joabe Silva, freelancer de presença digital para negócios locais. Trabalho com empresas que existem mas ainda não aparecem direito na internet — seja no Google, nas buscas por localização, ou na confiança que passam pra quem pesquisa.
+Sou Joabe Silva, freelancer de presença digital para negócios locais. Opero sob a marca **InvestADS** — nome que une credibilidade (Invest) com atuação em presença digital e anúncios (ADS). Trabalho com empresas que existem mas ainda não aparecem direito na internet — seja no Google, nas buscas por localização, ou na confiança que passam pra quem pesquisa.
 
 ## Meu serviço
 
