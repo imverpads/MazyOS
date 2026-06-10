@@ -7,12 +7,17 @@
 ## Em andamento
 
 ### ALS Serviços LTDA
-- [ ] Receber pagamento (Tatiane confirmou que vai pagar — R$297 entrada)
+- [ ] Enviar chave Pix para Tatiane
+- [ ] Receber pagamento — R$297 (combinado na reunião 09/06/2026)
+- [ ] Orientar Tatiane a encontrar acesso ao GMN (passo a passo pelo WhatsApp)
 - [ ] Receber acesso ao Google Meu Negócio
 - [ ] Diagnóstico e reestruturação do perfil no Google
 - [ ] Criar página profissional de apoio
+- [ ] **Módulo 2 — Redes Sociais** (após concluir GMN — precificar e propor)
+  - [ ] Definir valor para Instagram + Facebook + LinkedIn
+  - [ ] Apresentar proposta para Tatiane
 - [ ] **Vaga de emprego (brinde — sem custo adicional)**
-    - [x] Tatiane enviar informações das vagas
+  - [x] Tatiane enviar informações das vagas
   - [x] Tatiane enviar logo
   - [x] Redigir copies dos anúncios (`campanha-vagas.md`)
   - [x] Criar apresentação de slides explicando o processo (`Campanha de Vagas ALS.pdf`)
@@ -22,6 +27,12 @@
   - [ ] Criar artes das imagens
   - [ ] Definir orçamento de mídia com Tatiane
   - [ ] Montar e subir campanha de anúncio
+
+### Tatiane Pessoal (palestrante / mentora / psicoterapeuta)
+> Projeto separado — troca: case study + indicações (sem cobrança agora)
+- [ ] Aguardar Tatiane enviar o livro (lançamento previsto junho/2026)
+- [ ] Criar site de lançamento do livro (autoconhecimento / cuidados)
+- [ ] Definir estratégia de posicionamento no Instagram
 
 ### Panificadora MANÁ
 - [x] Fazer call de diagnóstico com o dono (05/06/2026 — Clésio Ferreira)

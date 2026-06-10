@@ -22,7 +22,7 @@
 
 - Google Meu Negócio — perfil incompleto / fraco
 - Site — sem página profissional estruturada
-- Instagram / Facebook — a verificar (Tatiane informou que não mexe muito)
+- Instagram / Facebook / LinkedIn — a estruturar (Tatiane pediu posicionamento nas redes na reunião de 09/06/2026)
 - Meta Business / Central de Anúncios — a verificar
 
 ## Proposta enviada e aceita
@@ -72,6 +72,24 @@ Tatiane entrou em contato pedindo criação de anúncio de vaga para **aprendiz 
 - [ ] Definir orçamento de mídia
 - [ ] Criar artes das imagens (logo + "Estamos Contratando")
 - [ ] Montar e subir campanha
+
+## Reunião de alinhamento — 09/06/2026
+
+- Reunião via Google Meet, ~1h
+- Tatiane fez perguntas sobre como seria feito o posicionamento — Joabe mostrou a proposta/site como referência
+- Tatiane não sabe onde encontrar o acesso admin do GMN — orientação enviada por WhatsApp
+- Tatiane solicitou posicionamento em redes sociais (Instagram, Facebook, LinkedIn) como próximo módulo após GMN
+- **Pagamento combinado:** R$297 via Pix ainda hoje
+- **Próximo passo:** Joabe envia chave Pix + passo a passo do GMN por WhatsApp
+
+## Projeto pessoal da Tatiane (separado)
+
+- Tatiane atua como palestrante, mentora e psicoterapeuta
+- Tem Instagram pessoal bem estruturado com posts organizados
+- Vai lançar um livro em junho/2026 (tema: autoconhecimento / cuidados)
+- Quer site para o lançamento do livro
+- Acordo: Joabe faz o site + estratégia de Instagram **sem cobrar** em troca de **case study + indicações**
+- Tatiane vai enviar o material do livro
 
 ## Arquivos
 
