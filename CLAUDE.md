@@ -1,115 +1,124 @@
-# MazyOS — Sistema operacional do negócio
+# Joabe Silva — MazyOS
 
-Sua empresa roda em cima desse arquivo. Aqui ficam as regras de operação
-do MazyOS — como o Claude lê o contexto, aprende com correções, mantém
-tudo atualizado e cria skills novas conforme a operação evolui.
+Consultoria de estruturação digital para negócios locais. Aqui ficam o método ODL, os clientes, as propostas, os conteúdos e as entregas. O sistema opera como um segundo cérebro — conhecimento documentado, processos replicáveis, operação previsível.
 
-Esse arquivo é editável. Quando o `/instalar` rodar, ele complementa o
-final dessa página com as regras específicas do seu negócio.
+**Estrutura de pastas:**
+- `_memoria/` — quem é o negócio, como falamos, foco atual
+- `identidade/` — marca Joabe Silva (aplicada em todas as peças)
+- `clientes/` — uma subpasta por cliente, autossuficiente
+- `briefings/` — briefings antes de virar cliente
+- `propostas/` — propostas em andamento
+- `marketing/` — conteúdo institucional e de autoridade
+- `saidas/` — documentos pontuais, análises, entregáveis avulsos
+- `dados/` — arquivos a analisar (relatórios de cliente, exports)
+- `scripts/` — automações, agentes e ferramentas internas
 
 ---
 
 ## Contexto do negócio
 
-No início de toda conversa, ler os seguintes arquivos (quando existirem
-e estiverem preenchidos):
+No início de toda conversa, ler os seguintes arquivos (quando existirem e estiverem preenchidos):
 
-1. `_memoria/empresa.md` — quem é o usuário, o que faz, como funciona o negócio
+1. `_memoria/empresa.md` — quem é o Joabe, o que faz, como funciona o negócio
 2. `_memoria/preferencias.md` — tom de voz, estilo de escrita, o que evitar
 3. `_memoria/estrategia.md` — foco atual, prioridades, prazos
 
-Usar essas informações como base pra qualquer resposta ou decisão. Ao
-sugerir prioridades, formatos ou abordagens, considerar o foco atual
-descrito em `estrategia.md`.
+Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 
-Pra qualquer tarefa visual (carrossel, post, landing page), consultar
-`identidade/design-guide.md` como referência de estilo.
+Pra qualquer tarefa visual (carrossel, post, proposta, landing page), consultar `identidade/design-guide.md` como referência de estilo.
 
-Não é necessário listar o que foi lido nem confirmar a leitura. Apenas
-usar o contexto naturalmente.
+Não listar o que foi lido nem confirmar a leitura. Usar o contexto naturalmente.
+
+---
+
+## Sobre a consultoria
+
+Joabe Silva é uma consultoria especializada em estruturação digital para negócios locais via método ODL (Operação Digital Local). Opera em modelo consultivo: diagnóstico, planejamento, implementação e otimização.
+
+Atende: clínicas, pet shops, imobiliárias, lojas, barbearias, prestadores de serviço — negócios com demanda existente mas operação digital desorganizada.
+
+Serviços: posicionamento digital, Instagram estratégico, Google Meu Negócio, sites de autoridade e captação, automação de WhatsApp, agentes de IA, CRM, processos comerciais, tráfego pago, SEO local.
+
+Operação solo, desenhada para escalar via IA, sistemas e processos documentados.
+
+---
+
+## Clientes ativos
+
+*(Atualizar com `/atualizar` conforme novos clientes forem iniciados)*
+
+---
+
+## O que mais produzimos aqui
+
+- Diagnósticos de operação digital para novos clientes
+- Planos de implementação ODL
+- Propostas comerciais
+- Conteúdo estratégico e de autoridade (Instagram, LinkedIn)
+- Agentes de IA e automações
+- Sites e estruturas de captação
+- Relatórios e análises de performance
+
+---
+
+## Tom de voz
+
+Direto, diagnóstico, consultivo. Explica o porquê do problema antes de apresentar a solução. Frases curtas, sem enrolação, autoridade sem arrogância. Tecnologia traduzida para impacto financeiro e operacional.
+
+**Evitar:** "vamos juntos", "alavanque", "potencialize", "método revolucionário", "sinergia", "mindset", "jornada", linguagem de guru de marketing, promessas milagrosas, hype, emojis em materiais formais, linguagem corporativa vazia.
+
+---
+
+## Regras do sistema
+
+- Cliente novo → criar pasta `clientes/<NomeCliente>/` com briefing, diagnóstico ODL, estratégia e subpastas conforme entregas contratadas
+- Proposta nova → `propostas/<cliente>-<data>.html` antes de fechar
+- Casos de sucesso → `clientes/<NomeCliente>/caso.md` (reuso em pitches e conteúdo)
+- Todo conteúdo gerado deve passar pelo filtro de tom de voz em `_memoria/preferencias.md`
+- Para qualquer visual, consultar `identidade/design-guide.md` antes de criar
 
 ---
 
 ## Fluxo de trabalho
 
-Antes de executar qualquer tarefa, verificar se existe skill relevante
-em `.claude/skills/`. Se encontrar, seguir as instruções da skill. Se
-não encontrar, executar a tarefa normalmente.
+Antes de executar qualquer tarefa, verificar se existe skill relevante em `.claude/skills/`. Se encontrar, seguir as instruções da skill. Se não encontrar, executar normalmente.
 
-Ao concluir uma tarefa que não tinha skill mas parece repetível (o
-usuário provavelmente vai pedir de novo no futuro), perguntar:
-
+Ao concluir uma tarefa que não tinha skill mas parece repetível, perguntar:
 > "Isso pode virar uma skill pra próxima vez. Quer que eu crie?"
-
-Não perguntar pra tarefas pontuais ou perguntas simples. Só quando o
-padrão de repetição for claro.
 
 ---
 
 ## Aprender com correções
 
-Quando o usuário corrigir algo, melhorar uma resposta ou dar uma
-instrução que parece permanente (frases como "na verdade é assim", "não
-faça mais isso", "prefiro assim", "sempre que...", "evita...", "da
-próxima vez..."), perguntar:
-
+Quando o Joabe corrigir algo ou der instrução permanente ("na verdade é assim", "não faça mais isso", "prefiro assim", "sempre que...", "da próxima vez..."), perguntar:
 > "Quer que eu salve isso pra não precisar repetir?"
 
-Se sim, identificar onde faz mais sentido salvar:
-
-- **Sobre o negócio** (clientes, serviços, mercado) → `_memoria/empresa.md`
-- **Sobre preferências e estilo** (tom de voz, formato, o que evitar) → `_memoria/preferencias.md`
-- **Sobre prioridades e foco** (projetos, metas, prazos) → `_memoria/estrategia.md`
-- **Regra de comportamento nessa pasta** → próprio `CLAUDE.md`
-
-Salvar com uma linha nova clara, sem reformatar o arquivo inteiro.
-Confirmar mostrando a linha adicionada.
-
-Não perguntar se a correção for óbvia de contexto imediato (ex: "na
-verdade o arquivo se chama X"). Só perguntar quando a informação tiver
-valor duradouro.
+Se sim, identificar onde salvar:
+- Sobre o negócio → `_memoria/empresa.md`
+- Sobre preferências e estilo → `_memoria/preferencias.md`
+- Sobre prioridades e foco → `_memoria/estrategia.md`
+- Regra de comportamento nessa pasta → `CLAUDE.md`
 
 ---
 
 ## Manter contexto atualizado
 
-Ao terminar uma tarefa que mudou algo relevante (cliente novo, skill
-nova, mudança de foco, processo novo, ferramenta instalada, estrutura
-alterada), perguntar:
-
+Ao terminar uma tarefa que mudou algo relevante (cliente novo, skill criada, mudança de foco, ferramenta instalada), perguntar:
 > "Isso mudou algo no teu contexto. Quer que eu atualize a memória?"
 
-Se sim, identificar o que atualizar:
+Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo inteiro — só adicionar ou editar a linha relevante.
 
-- **Cliente, serviço, ferramenta, equipe** → `_memoria/empresa.md`
-- **Mudança de prioridade ou foco** → `_memoria/estrategia.md`
-- **Tom ou estilo** → `_memoria/preferencias.md`
-- **Pasta, regra de organização, skill criada** → `CLAUDE.md`
-- **Visual (cores, fontes, logo)** → `identidade/design-guide.md`
-
-Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo
-inteiro, só adicionar ou editar a linha relevante.
-
-**Quando NÃO perguntar:**
-- Tarefas pontuais sem impacto no contexto (escrever um email avulso, criar um post)
-- Perguntas simples ou conversas sem ação
-- Mudanças já salvas pelo bloco "Aprender com correções"
-
-**Dica:** rode `/atualizar` pra uma varredura completa quando houver dúvida.
+Rode `/atualizar` pra uma varredura completa quando houver dúvida.
 
 ---
 
-## Criação de skills
+## Ferramentas conectadas
 
-Quando o usuário pedir skill nova:
+- [ ] Notion
+- [ ] Gmail
+- [ ] Google Calendar
+- [ ] Meta Ads
+- [ ] Google Ads
+- [ ] WhatsApp Business API
 
-1. Verificar se existe template relevante em `templates/skills/`. Se
-   existir, usar como base e adaptar pro contexto
-2. Perguntar se é específica desse projeto ou útil em qualquer:
-   - Específica → `.claude/skills/nome-da-skill/SKILL.md` (local)
-   - Universal → `~/.claude/skills/nome-da-skill/SKILL.md` (global)
-3. Ler `_memoria/empresa.md` e `_memoria/preferencias.md` pra calibrar
-   o conteúdo da skill ao contexto do negócio
-4. Se a skill precisar de arquivos de apoio (templates, exemplos),
-   criar dentro da pasta da skill
-5. Seguir o fluxo da skill-creator nativa do Claude Code
+*(Marcar conforme for instalando os MCPs)*
