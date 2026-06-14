@@ -5,7 +5,15 @@
 - **Nome:** ALS Serviços LTDA
 - **Contato:** Tatiane (representante)
 - **Segmento:** Serviços — limpeza, manutenção e infraestrutura
-- **Status:** Proposta aceita — aguardando pagamento
+- **Status:** Paga — em execução (10/06/2026)
+- **GMN:** Acesso de administrador confirmado — verificação em andamento (até 5 dias úteis)
+- **Domínio:** alsservicos.com registrado, mas Tatiane sem acesso — pendente recuperação
+- **WhatsApp:** (38) 9 8828-5088
+- **Site:** alsservicos.com
+- **Email:** comercial@alsservicos.com
+- **Instagram:** @alsservicosltda
+- **LinkedIn:** als-serviçosltda
+- **Área:** Montes Claros, MG e região
 
 ## Serviços da empresa
 
@@ -15,8 +23,13 @@
 - Manutenção elétrica e hidráulica
 - Manutenções preventivas e corretivas
 - Soluções para infraestrutura de água e energia
-- Tratamento e monitoramento de água
-- Poços artesianos
+- Tratamento e monitoramento de água de poços artesianos
+- Instalação e manutenção de portões eletrônicos
+- Atendimento para empresas, condomínios, restaurantes e salões de festas
+
+## Fotos disponíveis
+
+Catálogo completo no WhatsApp comercial — equipe fardada, serviço em campo (limpeza de reservatório, manutenção elétrica), ambiente interno, veículo, logo.
 
 ## Situação digital (diagnóstico inicial)
 

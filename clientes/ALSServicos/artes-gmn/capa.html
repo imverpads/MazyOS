@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ALS — Capa GMN (1080×608)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: 'Montserrat', sans-serif; }
+
+    .toolbar {
+      background: #1a1a1a;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: monospace;
+      font-size: 13px;
+      color: #777;
+    }
+    .toolbar strong { color: #F5821F; }
+    .btn-download {
+      background: #F5821F;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-download:hover { background: #FF9A3C; }
+
+    .canvas {
+      width: 1080px;
+      height: 608px;
+      background: linear-gradient(135deg, #071E34 0%, #0C2A47 55%, #0F3D6B 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 72px;
+      gap: 48px;
+    }
+
+    /* Decorações */
+    .deco-bar { position:absolute; left:0; top:0; bottom:0; width:6px; background:linear-gradient(to bottom,#FF9A3C,#F5821F,#C96A0E); }
+    .deco-c1 { position:absolute; width:480px; height:480px; border-radius:50%; border:1px solid rgba(245,130,31,0.07); top:-160px; right:-80px; }
+    .deco-c2 { position:absolute; width:280px; height:280px; border-radius:50%; border:1px solid rgba(245,130,31,0.05); bottom:-100px; right:220px; }
+    .deco-line { position:absolute; bottom:48px; left:80px; width:200px; height:1px; background:rgba(245,130,31,0.15); }
+    .deco-dots { position:absolute; right:64px; bottom:44px; display:grid; grid-template-columns:repeat(5,1fr); gap:7px; }
+    .deco-dots span { width:4px; height:4px; background:rgba(245,130,31,0.18); border-radius:50%; display:block; }
+
+    /* Lado esquerdo */
+    .left { flex:1; display:flex; flex-direction:column; gap:22px; }
+
+    .logo-row { display:flex; align-items:center; gap:16px; }
+    .logo-box { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px 14px; flex-shrink:0; }
+    .logo-name { display:flex; flex-direction:column; gap:3px; }
+    .logo-als { font-size:44px; font-weight:900; color:white; line-height:1; letter-spacing:-2px; }
+    .logo-sub { font-size:10.5px; font-weight:700; color:#F5821F; letter-spacing:3.5px; text-transform:uppercase; }
+
+    .divider { width:52px; height:3px; background:linear-gradient(to right,#F5821F,#FF9A3C); border-radius:2px; }
+
+    .tagline { font-size:23px; font-weight:600; color:rgba(255,255,255,0.92); line-height:1.5; max-width:480px; }
+    .tagline em { color:#FF9A3C; font-style:normal; }
+
+    .contact-list { display:flex; flex-direction:column; gap:9px; margin-top:4px; }
+    .contact-item { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.6); font-size:14.5px; font-family:'Inter',sans-serif; }
+    .contact-item strong { color:white; font-weight:600; }
+    .cdot { width:5px; height:5px; background:#F5821F; border-radius:50%; flex-shrink:0; }
+
+    /* Lado direito */
+    .right { display:flex; flex-direction:column; align-items:flex-end; gap:22px; flex-shrink:0; width:220px; }
+
+    .badge { background:rgba(245,130,31,0.1); border:1px solid rgba(245,130,31,0.3); color:#F5821F; font-size:11.5px; font-weight:700; padding:7px 18px; border-radius:100px; text-transform:uppercase; letter-spacing:2px; }
+
+    .stars-block { text-align:right; }
+    .stars { color:#F5821F; font-size:28px; letter-spacing:5px; line-height:1; }
+    .stars-label { color:rgba(255,255,255,0.45); font-size:11.5px; text-transform:uppercase; letter-spacing:1px; margin-top:6px; font-family:'Inter',sans-serif; }
+
+    .hours-block { text-align:right; }
+    .hours-title { color:rgba(255,255,255,0.35); font-size:10px; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+    .hours-line { color:rgba(255,255,255,0.8); font-size:13px; font-weight:500; line-height:1.8; font-family:'Inter',sans-serif; }
+
+    .atende-badge {
+      background:rgba(15,61,107,0.8);
+      border:1px solid rgba(255,255,255,0.1);
+      color:rgba(255,255,255,0.7);
+      font-size:11px;
+      font-weight:600;
+      padding:6px 14px;
+      border-radius:6px;
+      text-align:center;
+      line-height:1.5;
+      font-family:'Inter',sans-serif;
+    }
+    .atende-badge strong { color:white; display:block; font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>Foto de capa &nbsp;·&nbsp; <strong>1080 × 608 px</strong> &nbsp;·&nbsp; Google Meu Negócio</span>
+    <button class="btn-download" onclick="baixar()">⬇ Baixar PNG</button>
+  </div>
+
+  <div class="canvas" id="canvas">
+    <div class="deco-bar"></div>
+    <div class="deco-c1"></div>
+    <div class="deco-c2"></div>
+    <div class="deco-line"></div>
+    <div class="deco-dots">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="left">
+      <div class="logo-row">
+        <div class="logo-box">
+          <svg width="56" height="52" viewBox="0 0 56 52" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="28,3 54,24 43,24 43,40 13,40 13,24 2,24" fill="#F5821F"/>
+            <text x="28" y="52" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="0" fill="transparent">.</text>
+          </svg>
+        </div>
+        <div class="logo-name">
+          <div class="logo-als">ALS</div>
+          <div class="logo-sub">Serviços Limitada</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="tagline">
+        <em>Limpeza, Manutenção</em> e Infraestrutura<br>em Montes Claros e região
+      </div>
+
+      <div class="contact-list">
+        <div class="contact-item"><div class="cdot"></div><strong>(38) 98828-5088</strong></div>
+        <div class="contact-item"><div class="cdot"></div><strong>alsservicos.com</strong>&ensp;·&ensp;comercial@alsservicos.com</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="badge">Desde 2010</div>
+      <div class="stars-block">
+        <div class="stars">★★★★★</div>
+        <div class="stars-label">5.0 · Google Avaliações</div>
+      </div>
+      <div class="hours-block">
+        <div class="hours-title">Atendimento</div>
+        <div class="hours-line">Seg – Sex &nbsp;08h às 18h<br>Sábado &nbsp;&nbsp;&nbsp;&nbsp;08h às 12h</div>
+      </div>
+      <div class="atende-badge">
+        <strong>Montes Claros e região</strong>
+        MG · Norte de Minas Gerais
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function baixar() {
+      const btn = document.querySelector('.btn-download');
+      btn.textContent = 'Gerando...';
+      btn.disabled = true;
+      html2canvas(document.getElementById('canvas'), {
+        scale: 1, width: 1080, height: 608, useCORS: true, logging: false
+      }).then(c => {
+        const a = document.createElement('a');
+        a.download = 'als-capa-gmn.png';
+        a.href = c.toDataURL('image/png');
+        a.click();
+        btn.textContent = '⬇ Baixar PNG';
+        btn.disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>

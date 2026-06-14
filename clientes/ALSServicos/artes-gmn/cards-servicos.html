@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ALS — Cards de Serviços GMN (1080×1080)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: 'Montserrat', sans-serif; }
+
+    .toolbar {
+      background: #1a1a1a;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .toolbar-left { font-family: monospace; font-size: 13px; color: #777; }
+    .toolbar-left strong { color: #F5821F; }
+    .nav-row { display: flex; align-items: center; gap: 12px; }
+    .nav-btn {
+      background: #2a2a2a;
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .nav-btn:hover { background: #3a3a3a; }
+    .nav-counter { color: #777; font-family: monospace; font-size: 14px; min-width: 60px; text-align: center; }
+    .btn-download {
+      background: #F5821F;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-download:hover { background: #FF9A3C; }
+
+    /* CANVAS */
+    .canvas {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      display: none;
+    }
+    .canvas.ativo { display: flex; }
+
+    /* Layout base de cada card */
+    .canvas {
+      background: #071E34;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 72px 80px;
+      gap: 0;
+    }
+
+    /* Decorações */
+    .deco-bar-h { position:absolute; top:0; left:0; right:0; height:6px; background:linear-gradient(to right,#C96A0E,#F5821F,#FF9A3C); }
+    .deco-c1 { position:absolute; width:600px; height:600px; border-radius:50%; border:1px solid rgba(245,130,31,0.06); top:-220px; right:-180px; }
+    .deco-c2 { position:absolute; width:360px; height:360px; border-radius:50%; border:1px solid rgba(245,130,31,0.04); bottom:-140px; left:-100px; }
+    .deco-num { position:absolute; right:56px; top:52px; font-size:120px; font-weight:900; color:rgba(245,130,31,0.04); line-height:1; }
+    .deco-bar-v { position:absolute; left:0; top:6px; bottom:0; width:4px; background:rgba(245,130,31,0.15); }
+
+    /* Conteúdo */
+    .card-inner { display:flex; flex-direction:column; align-items:flex-start; gap:28px; width:100%; position:relative; z-index:1; }
+
+    .icon-box {
+      width: 100px;
+      height: 100px;
+      background: rgba(245,130,31,0.1);
+      border: 1px solid rgba(245,130,31,0.25);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+    }
+
+    .service-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #F5821F;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .service-name {
+      font-size: 56px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .service-divider {
+      width: 64px;
+      height: 4px;
+      background: linear-gradient(to right, #F5821F, #FF9A3C);
+      border-radius: 2px;
+    }
+
+    .service-desc {
+      font-size: 21px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+      max-width: 740px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .tag {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Footer do card */
+    .card-footer {
+      position: absolute;
+      bottom: 56px;
+      left: 80px;
+      right: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 24px;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .footer-contact span { color:rgba(255,255,255,0.45); font-size:13px; font-family:'Inter',sans-serif; }
+    .footer-contact strong { color:white; font-size:15px; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-logo-mark {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .footer-logo-text { display:flex; flex-direction:column; gap:2px; }
+    .footer-als { font-size:22px; font-weight:900; color:white; line-height:1; }
+    .footer-sub { font-size:9px; font-weight:700; color:#F5821F; letter-spacing:2px; text-transform:uppercase; }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-left">Cards de serviços &nbsp;·&nbsp; <strong>1080 × 1080 px</strong> &nbsp;·&nbsp; Google Meu Negócio</div>
+  <div class="nav-row">
+    <button class="nav-btn" onclick="nav(-1)">← Anterior</button>
+    <div class="nav-counter" id="counter">1 / 8</div>
+    <button class="nav-btn" onclick="nav(1)">Próximo →</button>
+  </div>
+  <button class="btn-download" onclick="baixar()">⬇ Baixar PNG</button>
+</div>
+
+<!-- CARD 1 - Caixas d'água -->
+<div class="canvas ativo" id="card-1">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">01</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">💧</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Limpeza de<br>Caixas d'Água</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Higienização completa de caixas d'água e reservatórios com laudo técnico e certificado. Atendemos residências, empresas, condomínios e estabelecimentos comerciais.</div>
+    <div class="service-tags">
+      <span class="tag">Residencial</span>
+      <span class="tag">Comercial</span>
+      <span class="tag">Condomínios</span>
+      <span class="tag">Com laudo técnico</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 2 - Caixa de Gordura -->
+<div class="canvas" id="card-2">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">02</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">🏭</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Limpeza de<br>Caixa de Gordura</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Remoção e limpeza de caixas separadoras de gordura em restaurantes, lanchonetes, padarias e cozinhas industriais. Evita entupimentos e atende exigências da vigilância sanitária.</div>
+    <div class="service-tags">
+      <span class="tag">Restaurantes</span>
+      <span class="tag">Lanchonetes</span>
+      <span class="tag">Vigilância Sanitária</span>
+      <span class="tag">Indústrias</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 3 - Desentupimento -->
+<div class="canvas" id="card-3">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">03</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">🔧</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Desentupimento</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Desobstrução de pias, ralos, calhas, tubulações e esgoto com equipamento especializado. Atendimento ágil para residências, empresas e condomínios em Montes Claros e região.</div>
+    <div class="service-tags">
+      <span class="tag">Pias e Ralos</span>
+      <span class="tag">Tubulações</span>
+      <span class="tag">Esgoto</span>
+      <span class="tag">Atendimento rápido</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 4 - Manutenção Elétrica -->
+<div class="canvas" id="card-4">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">04</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">⚡</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Manutenção<br>Elétrica</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Instalação, reparo e revisão elétrica em residências, empresas e condomínios. Equipe técnica certificada, trabalhando com segurança e conformidade com as normas vigentes.</div>
+    <div class="service-tags">
+      <span class="tag">Instalações</span>
+      <span class="tag">Reparos</span>
+      <span class="tag">Revisão Elétrica</span>
+      <span class="tag">Equipe certificada</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 5 - Manutenção Hidráulica -->
+<div class="canvas" id="card-5">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">05</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">🔩</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Manutenção<br>Hidráulica</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Reparo de vazamentos, troca de registros, torneiras e conexões, além de instalação completa de sistemas hidráulicos. Atendimento para residências, empresas e condomínios.</div>
+    <div class="service-tags">
+      <span class="tag">Vazamentos</span>
+      <span class="tag">Instalações</span>
+      <span class="tag">Registros e Torneiras</span>
+      <span class="tag">Preventiva</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 6 - Manutenção Predial -->
+<div class="canvas" id="card-6">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">06</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">🏗️</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Manutenção<br>Predial</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Serviços integrados de conservação, manutenção preventiva e corretiva para condomínios, empresas e estabelecimentos comerciais. Contratos mensais disponíveis.</div>
+    <div class="service-tags">
+      <span class="tag">Preventiva</span>
+      <span class="tag">Corretiva</span>
+      <span class="tag">Condomínios</span>
+      <span class="tag">Contratos mensais</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 7 - Poços Artesianos -->
+<div class="canvas" id="card-7">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">07</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">🌊</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Poços<br>Artesianos</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Tratamento, monitoramento e manutenção de poços artesianos com análise de qualidade da água. Soluções completas para garantir água limpa e segura para sua propriedade.</div>
+    <div class="service-tags">
+      <span class="tag">Tratamento</span>
+      <span class="tag">Monitoramento</span>
+      <span class="tag">Análise da água</span>
+      <span class="tag">Manutenção</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 8 - Portões Eletrônicos -->
+<div class="canvas" id="card-8">
+  <div class="deco-bar-h"></div><div class="deco-c1"></div><div class="deco-c2"></div>
+  <div class="deco-num">08</div><div class="deco-bar-v"></div>
+  <div class="card-inner">
+    <div class="icon-box">🚪</div>
+    <div class="service-label">Serviço ALS</div>
+    <div class="service-name">Portões<br>Eletrônicos</div>
+    <div class="service-divider"></div>
+    <div class="service-desc">Instalação, manutenção e reparo de portões automáticos, cancelas e sistemas de controle de acesso. Atendimento para residências, empresas, condomínios e indústrias.</div>
+    <div class="service-tags">
+      <span class="tag">Instalação</span>
+      <span class="tag">Manutenção</span>
+      <span class="tag">Controle de Acesso</span>
+      <span class="tag">Emergência</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-contact">
+      <span>Solicite seu orçamento</span>
+      <strong>(38) 98828-5088</strong>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="#F5821F"/></svg>
+      </div>
+      <div class="footer-logo-text">
+        <div class="footer-als">ALS</div>
+        <div class="footer-sub">Serviços Limitada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  const nomes = ['caixas-dagua','caixa-gordura','desentupimento','manutencao-eletrica','manutencao-hidraulica','manutencao-predial','pocos-artesianos','portoes-eletronicos'];
+  let atual = 1;
+
+  function nav(dir) {
+    document.getElementById('card-' + atual).classList.remove('ativo');
+    atual = Math.max(1, Math.min(8, atual + dir));
+    document.getElementById('card-' + atual).classList.add('ativo');
+    document.getElementById('counter').textContent = atual + ' / 8';
+  }
+
+  function baixar() {
+    const btn = document.querySelector('.btn-download');
+    btn.textContent = 'Gerando...';
+    btn.disabled = true;
+    html2canvas(document.getElementById('card-' + atual), {
+      scale: 1, width: 1080, height: 1080, useCORS: true, logging: false
+    }).then(c => {
+      const a = document.createElement('a');
+      a.download = 'als-servico-' + nomes[atual - 1] + '.png';
+      a.href = c.toDataURL('image/png');
+      a.click();
+      btn.textContent = '⬇ Baixar PNG';
+      btn.disabled = false;
+    });
+  }
+</script>
+</body>
+</html>

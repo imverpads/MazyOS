@@ -1,7 +1,8 @@
 # Proposta — Presença Local 24H | ALS Serviços LTDA
 
 > Enviada para: Tatiane
-> Status: **Aceita — aguardando pagamento**
+> Status: **Paga — em execução**
+> Data do pagamento: 10/06/2026
 
 ---
 
