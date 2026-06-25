@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta — Panificadora e Lanchonete MANÁ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --border: #E8E8E4;
+      --text: #1A1A18;
+      --muted: #6B6B66;
+      --accent: #2E6B3E;
+      --accent-light: #EBF4EE;
+      --danger: #C0392B;
+      --danger-light: #FDECEA;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 56px;
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* Sections */
+    section { margin-bottom: 48px; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    p {
+      color: #3A3A36;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* Problem items */
+    .problem-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--danger-light);
+      border: 1px solid #F5C6C2;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .problem-item .icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .problem-item .text {
+      font-size: 14px;
+      color: #5C1E18;
+      line-height: 1.5;
+    }
+
+    .problem-item .text strong {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+      color: #3D130F;
+    }
+
+    /* Service cards */
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .service-card .service-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .service-card .service-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .badge.once { background: #EEF2FF; color: #3B4FCC; }
+
+    .service-card .service-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .service-card .service-items {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .service-card .service-items li {
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .service-card .service-items li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--border);
+    }
+
+    /* Pricing */
+    .pricing-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .pricing-row:last-child { border-bottom: none; }
+
+    .pricing-row .label { color: var(--muted); }
+    .pricing-row .value { font-weight: 600; color: var(--text); }
+
+    .pricing-row.total {
+      background: var(--accent-light);
+    }
+
+    .pricing-row.total .label {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .pricing-row.total .value {
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 32px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .timeline-content {
+      padding-bottom: 28px;
+    }
+
+    .timeline-content strong {
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .timeline-content span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* CTA */
+    .cta-block {
+      background: var(--accent);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .cta-block h3 {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .cta-block p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .cta-btn:hover { opacity: 0.9; }
+
+    /* Footer */
+    .footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer .from {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer .from strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer .validity {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .wrapper { padding: 32px 16px 60px; }
+      .header h1 { font-size: 22px; }
+      .cta-block { padding: 24px 20px; }
+      .footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-meta">Proposta comercial · Joabe Silva</div>
+      <h1>Presença digital para a Panificadora e Lanchonete MANÁ</h1>
+      <div class="subtitle">Santana do Araguaia — PA</div>
+    </div>
+
+    <!-- Diagnóstico -->
+    <section>
+      <div class="section-label">Diagnóstico</div>
+      <h2>O que está custando clientes hoje</h2>
+      <p>
+        Antes de escolher onde comprar, a maioria das pessoas pesquisa no Google. Elas olham as fotos, o horário, as avaliações — e decidem em segundos se vão ou não. Se o negócio não aparece, ou aparece mal, elas vão pro concorrente.
+      </p>
+      <p>
+        Esse é o cenário atual da MANÁ:
+      </p>
+
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="icon">🔍</div>
+          <div class="text">
+            <strong>Google Meu Negócio fraco ou ausente</strong>
+            Quem pesquisa "padaria em Santana do Araguaia" não encontra a MANÁ — ou encontra um perfil sem foto, sem horário, sem informação.
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="icon">📱</div>
+          <div class="text">
+            <strong>Sem presença nas redes sociais</strong>
+            Instagram e Facebook parados não passam confiança. O cliente que descobre a MANÁ online não tem como ver os produtos, os preços ou o ambiente.
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="icon">⭐</div>
+          <div class="text">
+            <strong>Avaliações sem resposta</strong>
+            Não responder avaliações passa a impressão de descaso. Quem lê fica na dúvida se o lugar ainda funciona direito.
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="icon">💬</div>
+          <div class="text">
+            <strong>Sem canal de contato estruturado</strong>
+            Sem WhatsApp Business configurado, o cliente não tem como fazer pedido, tirar dúvida ou encomendar com facilidade.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Solução -->
+    <section>
+      <div class="section-label">O que vamos fazer</div>
+      <h2>Estrutura digital completa — por etapas</h2>
+      <p>
+        Não faz sentido fazer tudo ao mesmo tempo e não conseguir manter nada. O plano é atacar o que traz resultado mais rápido primeiro, e ir construindo o resto em cima disso.
+      </p>
+
+      <div class="services">
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Google Meu Negócio</div>
+            <div class="badge once">Etapa 1</div>
+          </div>
+          <p class="service-desc">O canal que mais traz cliente local. Quem pesquisa no Google ou no Maps vai encontrar a MANÁ com foto, horário e avaliações respondidas.</p>
+          <ul class="service-items">
+            <li>Criação ou reivindicação e verificação do perfil</li>
+            <li>Preenchimento completo — horário, endereço, categorias, descrição</li>
+            <li>Upload de fotos da fachada, ambiente e produtos</li>
+            <li>Cardápio com itens e preços</li>
+            <li>Resposta a todas as avaliações existentes</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">WhatsApp Business</div>
+            <div class="badge once">Etapa 1</div>
+          </div>
+          <p class="service-desc">Canal direto de contato para encomendas, dúvidas e pedidos. Catálogo de produtos integrado.</p>
+          <ul class="service-items">
+            <li>Migração para WhatsApp Business</li>
+            <li>Perfil completo com horário e endereço</li>
+            <li>Catálogo de produtos com foto e preço</li>
+            <li>Mensagens automáticas de saudação e ausência</li>
+            <li>Link direto configurado em todos os canais</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Instagram + Facebook</div>
+            <div class="badge once">Etapa 2</div>
+          </div>
+          <p class="service-desc">Presença ativa nas redes para mostrar produtos, horários e o dia a dia da padaria. Conteúdo que gera confiança — sem exagero.</p>
+          <ul class="service-items">
+            <li>Criação ou otimização do perfil como conta comercial</li>
+            <li>Bio e foto de perfil configurados</li>
+            <li>Primeiros 9 posts para dar cara ao perfil</li>
+            <li>Página no Facebook vinculada ao Instagram</li>
+            <li>Frequência de 3 posts por semana</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Gestão mensal de conteúdo</div>
+            <div class="badge">Recorrente</div>
+          </div>
+          <p class="service-desc">Manutenção e crescimento da presença ao longo do tempo — posts, stories, resposta a avaliações e acompanhamento dos resultados.</p>
+          <ul class="service-items">
+            <li>12 posts por mês (Instagram + Facebook)</li>
+            <li>Stories semanais com cardápio e destaques</li>
+            <li>Resposta a avaliações no Google</li>
+            <li>Relatório mensal simples com o que funcionou</li>
+            <li>Ajustes na estratégia conforme o resultado</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Investimento -->
+    <section>
+      <div class="section-label">Investimento</div>
+      <h2>O que fica de fora do bolso</h2>
+
+      <div class="pricing-block">
+        <div class="pricing-row">
+          <span class="label">Configuração inicial (Google + WhatsApp + Redes)</span>
+          <span class="value">R$ [VALOR]</span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">Gestão mensal de conteúdo</span>
+          <span class="value">R$ [VALOR]/mês</span>
+        </div>
+        <div class="pricing-row total">
+          <span class="label">Total no primeiro mês</span>
+          <span class="value">R$ [VALOR]</span>
+        </div>
+      </div>
+
+      <p style="margin-top: 16px; font-size: 13px; color: var(--muted);">
+        Pagamento via Pix. Configuração inicial paga antes do início. Gestão mensal paga no início de cada mês. Sem contrato de longo prazo — a permanência depende do resultado.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Como funciona -->
+    <section>
+      <div class="section-label">Como funciona</div>
+      <h2>Do sim até estar no ar</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-content">
+            <strong>Você aprova a proposta</strong>
+            <span>Combinamos os detalhes finais e iniciamos o trabalho.</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-content">
+            <strong>Coleta de material</strong>
+            <span>Fotos da padaria, produtos, informações de horário e cardápio. Levo no máximo 1 encontro ou uma troca de mensagens.</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-content">
+            <strong>Configuração e publicação</strong>
+            <span>Google, WhatsApp e redes no ar em até 7 dias úteis.</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">4</div>
+          <div class="timeline-content">
+            <strong>Manutenção mensal</strong>
+            <span>Conteúdo, avaliações e acompanhamento todo mês. Você foca no atendimento — eu cuido da presença digital.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Vamos começar?</h3>
+      <p>Qualquer dúvida é só me chamar. Se fizer sentido, a gente fecha e começa essa semana.</p>
+      <a class="cta-btn" href="https://wa.me/55[SEU_NUMERO]?text=Ol%C3%A1%20Joabe%2C%20vi%20a%20proposta%20e%20quero%20conversar">
+        Falar no WhatsApp
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="from">
+        Proposta por <strong>Joabe Silva</strong> — Presença digital para negócios locais<br />
+        <span style="font-size: 12px;">joabesilvagomes7@gmail.com</span>
+      </div>
+      <div class="validity">Válida por 15 dias</div>
+    </div>
+
+  </div>
+</body>
+</html>

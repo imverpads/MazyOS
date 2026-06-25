@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ALS — Card Área de Atendimento GMN (1080×1080)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: 'Montserrat', sans-serif; }
+
+    .toolbar {
+      background: #1a1a1a;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .toolbar span { font-family: monospace; font-size: 13px; color: #777; }
+    .toolbar strong { color: #F5821F; }
+    .btn-download {
+      background: #F5821F;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-download:hover { background: #FF9A3C; }
+
+    .canvas {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(150deg, #071E34 0%, #0B2D4E 50%, #071E34 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 72px 80px;
+      gap: 0;
+    }
+
+    /* Decorações */
+    .deco-bar-h { position:absolute; top:0; left:0; right:0; height:6px; background:linear-gradient(to right,#C96A0E,#F5821F,#FF9A3C); }
+    .deco-bar-v { position:absolute; left:0; top:6px; bottom:0; width:4px; background:rgba(245,130,31,0.15); }
+    .deco-c1 { position:absolute; width:700px; height:700px; border-radius:50%; border:1px solid rgba(245,130,31,0.05); top:-250px; right:-200px; }
+    .deco-c2 { position:absolute; width:420px; height:420px; border-radius:50%; border:1px solid rgba(245,130,31,0.04); bottom:-160px; left:-120px; }
+
+    /* Grid de pontos de fundo */
+    .deco-grid {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(circle, rgba(245,130,31,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Conteúdo */
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .pin-icon {
+      width: 88px;
+      height: 88px;
+      background: rgba(245,130,31,0.1);
+      border: 1px solid rgba(245,130,31,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+    }
+
+    .label-top {
+      font-size: 12px;
+      font-weight: 700;
+      color: #F5821F;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .headline {
+      font-size: 60px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+    .headline em { color: #FF9A3C; font-style: normal; }
+
+    .divider {
+      width: 64px;
+      height: 4px;
+      background: linear-gradient(to right, #F5821F, #FF9A3C);
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+
+    .sub {
+      font-size: 20px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+      max-width: 620px;
+      line-height: 1.6;
+    }
+
+    /* Cidades grid */
+    .cidades-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      width: 100%;
+      max-width: 820px;
+    }
+    .cidade-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cidade-dot {
+      width: 8px;
+      height: 8px;
+      background: #F5821F;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .cidade-nome {
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+    .cidade-item.destaque {
+      background: rgba(245,130,31,0.08);
+      border-color: rgba(245,130,31,0.25);
+    }
+    .cidade-item.destaque .cidade-nome { color: white; }
+
+    /* CTA bar */
+    .cta-bar {
+      background: #F5821F;
+      border-radius: 14px;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 820px;
+    }
+    .cta-text { display:flex; flex-direction:column; gap:3px; text-align:left; }
+    .cta-label { color:rgba(255,255,255,0.75); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; font-family:'Inter',sans-serif; }
+    .cta-number { color:white; font-size:26px; font-weight:900; letter-spacing:-0.5px; }
+    .cta-logo { display:flex; align-items:center; gap:10px; }
+    .cta-als { font-size:26px; font-weight:900; color:white; line-height:1; }
+    .cta-sub { font-size:9px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:2px; text-transform:uppercase; }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>Card de área de atendimento &nbsp;·&nbsp; <strong>1080 × 1080 px</strong> &nbsp;·&nbsp; Google Meu Negócio</span>
+  <button class="btn-download" onclick="baixar()">⬇ Baixar PNG</button>
+</div>
+
+<div class="canvas" id="canvas">
+  <div class="deco-bar-h"></div>
+  <div class="deco-bar-v"></div>
+  <div class="deco-c1"></div>
+  <div class="deco-c2"></div>
+  <div class="deco-grid"></div>
+
+  <div class="content">
+    <div class="pin-icon">📍</div>
+    <div class="label-top">Área de atendimento</div>
+    <div class="headline">Montes Claros<br>e <em>toda a região</em></div>
+    <div class="divider"></div>
+    <div class="sub">Atendemos empresas, condomínios, restaurantes e residências em Montes Claros e cidades vizinhas do Norte de Minas Gerais.</div>
+
+    <div class="cidades-grid">
+      <div class="cidade-item destaque">
+        <div class="cidade-dot"></div>
+        <div class="cidade-nome">Montes Claros</div>
+      </div>
+      <div class="cidade-item">
+        <div class="cidade-dot"></div>
+        <div class="cidade-nome">Bocaiúva</div>
+      </div>
+      <div class="cidade-item">
+        <div class="cidade-dot"></div>
+        <div class="cidade-nome">Francisco Sá</div>
+      </div>
+      <div class="cidade-item">
+        <div class="cidade-dot"></div>
+        <div class="cidade-nome">Pirapora</div>
+      </div>
+      <div class="cidade-item">
+        <div class="cidade-dot"></div>
+        <div class="cidade-nome">Ibiá</div>
+      </div>
+      <div class="cidade-item">
+        <div class="cidade-dot"></div>
+        <div class="cidade-nome">Região Norte MG</div>
+      </div>
+    </div>
+
+    <div class="cta-bar">
+      <div class="cta-text">
+        <div class="cta-label">Fale com a gente</div>
+        <div class="cta-number">(38) 98828-5088</div>
+      </div>
+      <div class="cta-logo">
+        <svg width="36" height="34" viewBox="0 0 36 34"><polygon points="18,2 34,16 27,16 27,28 9,28 9,16 2,16" fill="rgba(255,255,255,0.9)"/></svg>
+        <div>
+          <div class="cta-als">ALS</div>
+          <div class="cta-sub">Serviços Limitada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  function baixar() {
+    const btn = document.querySelector('.btn-download');
+    btn.textContent = 'Gerando...';
+    btn.disabled = true;
+    html2canvas(document.getElementById('canvas'), {
+      scale: 1, width: 1080, height: 1080, useCORS: true, logging: false
+    }).then(c => {
+      const a = document.createElement('a');
+      a.download = 'als-area-atendimento.png';
+      a.href = c.toDataURL('image/png');
+      a.click();
+      btn.textContent = '⬇ Baixar PNG';
+      btn.disabled = false;
+    });
+  }
+</script>
+</body>
+</html>
